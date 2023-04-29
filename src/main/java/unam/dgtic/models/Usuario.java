@@ -22,8 +22,9 @@ public class Usuario implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy="usuario")
     private List<Domicilio> domicilios;
-    /*@OneToMany(mappedBy="usuario")
-    private List<Venta> ventas;*/
+    @JsonIgnore
+    @OneToMany(mappedBy="usuario", fetch=FetchType.LAZY)
+    private List<Venta> ventas;
     public Usuario() {
     }
     public int getId() {
@@ -84,7 +85,7 @@ public class Usuario implements Serializable {
         domicilio.setUsuario(null);
         return domicilio;
     }
-    /*
+
     public List<Venta> getVentas() {
     return this.ventas;
     }
@@ -101,7 +102,7 @@ public class Usuario implements Serializable {
     venta.setUsuario(null);
     return venta;
     }
-    */
+
     @Override
     public String toString() {
         return "Usuario [id=" + id + ", email=" + email + ", nombre=" + nombre + ", password=" + password

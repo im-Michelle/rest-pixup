@@ -27,7 +27,7 @@ public class EstadoRepositoryImpl implements CrudRepository<Estado> {
     }
     @Override
     public Collection<Estado> buscarTodos() {
-        return em.createQuery("from Estado m", Estado.class).getResultList();
+        return em.createQuery("from Estado", Estado.class).getResultList();
     }
     @Override
     public Collection<Estado> buscaRelacion(int id) {

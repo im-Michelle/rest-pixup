@@ -35,7 +35,7 @@ public class MunicipioRepositoryImpl implements CrudRepository<Municipio> {
 
     @Override
     public Collection<Municipio> buscarTodos() {
-        return em.createQuery("from Municipio m", Municipio.class).getResultList();
+        return em.createQuery("from Municipio", Municipio.class).getResultList();
     }
 
     @Override
